@@ -1,0 +1,169 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand palette */
+  --color-espresso: var(--espresso);
+  --color-ivory: var(--ivory);
+  --color-olive: var(--olive);
+  --color-bronze: var(--bronze);
+  --color-stone: var(--stone);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Deep espresso base */
+  --background: oklch(0.171 0.014 50);
+  --foreground: oklch(0.923 0.01 85);
+
+  --card: oklch(0.216 0.014 50);
+  --card-foreground: oklch(0.923 0.01 85);
+  --popover: oklch(0.205 0.014 50);
+  --popover-foreground: oklch(0.923 0.01 85);
+
+  /* Mediterranean olive (from brand #28773F), lifted for dark surfaces */
+  --primary: oklch(0.63 0.108 150);
+  --primary-foreground: oklch(0.16 0.02 150);
+
+  --secondary: oklch(0.242 0.014 50);
+  --secondary-foreground: oklch(0.923 0.01 85);
+
+  --muted: oklch(0.242 0.014 50);
+  --muted-foreground: oklch(0.706 0.012 76);
+
+  /* Champagne / bronze accent */
+  --accent: oklch(0.745 0.066 74);
+  --accent-foreground: oklch(0.18 0.02 60);
+
+  --destructive: oklch(0.6 0.2 27);
+  --border: oklch(0.322 0.012 55);
+  --input: oklch(0.322 0.012 55);
+  --ring: oklch(0.63 0.108 150);
+
+  --radius: 0.25rem;
+
+  /* Named brand tokens */
+  --espresso: oklch(0.132 0.012 46);
+  --ivory: oklch(0.965 0.008 88);
+  --olive: oklch(0.63 0.108 150);
+  --bronze: oklch(0.745 0.066 74);
+  --stone: oklch(0.42 0.014 60);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+  ::selection {
+    background: var(--olive);
+    color: var(--ivory);
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif;
+    font-feature-settings: 'liga', 'dlig';
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@utility eyebrow {
+  @apply font-sans uppercase text-xs tracking-[0.28em] font-medium;
+}
+
+/* Fine film-grain / vignette helpers used on cinematic sections */
+@utility cinematic-vignette {
+  background: radial-gradient(
+    120% 90% at 50% 40%,
+    transparent 40%,
+    color-mix(in oklch, var(--espresso) 55%, transparent) 100%
+  );
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Elegant matted picture frame for photography on dark surfaces */
+@utility frame {
+  border-radius: 4px;
+  padding: clamp(6px, 0.9vw, 12px);
+  background: linear-gradient(
+    155deg,
+    color-mix(in oklch, var(--bronze) 22%, var(--card)) 0%,
+    var(--card) 45%,
+    color-mix(in oklch, var(--espresso) 60%, var(--card)) 100%
+  );
+  border: 1px solid color-mix(in oklch, var(--bronze) 34%, transparent);
+  box-shadow:
+    0 1px 0 color-mix(in oklch, var(--bronze) 26%, transparent) inset,
+    0 28px 64px -30px rgba(0, 0, 0, 0.9);
+}
+
+@utility frame-inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--espresso) 70%, transparent),
+    0 8px 24px -10px rgba(0, 0, 0, 0.7) inset;
+}
+
+/* Lightweight bronze hairline frame (no mat) for grid imagery */
+@utility frame-line {
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid color-mix(in oklch, var(--bronze) 30%, transparent);
+  box-shadow: 0 22px 55px -30px rgba(0, 0, 0, 0.9);
+}
