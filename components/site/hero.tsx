@@ -46,35 +46,30 @@ export function Hero() {
     >
       {/* Background layer: outer div carries the scroll-linked scale, inner div a slow idle zoom */}
       <motion.div className="absolute inset-0" style={{ scale: bgScale }}>
-        <motion.div
-          className="absolute inset-0"
-          animate={reduce ? undefined : { scale: [1, 1.06, 1] }}
-          transition={{ duration: 22, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-        >
-          {/* Poster image is always painted first (LCP-friendly), video layers on top when allowed */}
-          <img
-            src="/ambient/ambient3.png"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover"
-            fetchPriority="high"
-          />
-          {canPlayVideo && (
-            <video
-              ref={videoRef}
-              className="absolute inset-0 h-full w-full object-cover"
-              poster="/ambient/ambient3.png"
-              muted
-              loop
-              playsInline
-              preload="none"
-              aria-hidden="true"
-            >
-              <source src="/hero.mp4" type="video/mp4" />
-            </video>
-          )}
-        </motion.div>
-      </motion.div>
+  <motion.div
+    className="absolute inset-0"
+    animate={reduce ? undefined : { scale: [1, 1.06, 1] }}
+    transition={{
+      duration: 22,
+      repeat: Number.POSITIVE_INFINITY,
+      ease: "easeInOut",
+    }}
+  >
+    {canPlayVideo && (
+      <video
+        ref={videoRef}
+        className="absolute inset-0 h-full w-full object-cover"
+        muted
+        loop
+        playsInline
+        preload="none"
+        aria-hidden="true"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
+    )}
+  </motion.div>
+</motion.div>
 
       {/* Layered cinematic overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-espresso/70 via-espresso/35 to-espresso/85" />
