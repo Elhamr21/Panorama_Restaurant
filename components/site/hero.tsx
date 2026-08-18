@@ -13,9 +13,8 @@ export function Hero() {
   const [canPlayVideo, setCanPlayVideo] = useState(false)
 
   useEffect(() => {
-    // Respect reduced-motion and small screens: keep the poster instead of a heavy video download.
-    const smallScreen = window.matchMedia("(max-width: 640px)").matches
-    if (reduce || smallScreen) return
+    // Play the video on every screen size (including phones); only skip it for reduced-motion.
+    if (reduce) return
     setCanPlayVideo(true)
   }, [reduce])
 
