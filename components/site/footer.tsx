@@ -45,19 +45,41 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            &copy; {new Date().getFullYear()} {business.name}. Alle Rechte vorbehalten.
-          </p>
-          <div className="flex gap-6">
-            <Link href="/impressum" className="transition-colors hover:text-primary">
-              Impressum
-            </Link>
-            <Link href="/datenschutz" className="transition-colors hover:text-primary">
-              Datenschutz
-            </Link>
-          </div>
-        </div>
+<div className="mt-14 grid grid-cols-1 items-center gap-4 border-t border-border pt-8 text-sm text-muted-foreground md:grid-cols-3">
+  {/* Left */}
+  <p className="text-center md:text-left">
+    &copy; {new Date().getFullYear()} {business.name}. Alle Rechte vorbehalten.
+  </p>
+
+  {/* Center */}
+  <p className="text-center">
+    Developed by{" "}
+    <a
+      href="https://clearline-ai.tech/en"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="transition-colors hover:text-primary"
+    >
+      ClearlineTech
+    </a>
+  </p>
+
+  {/* Right */}
+  <div className="flex justify-center gap-6 md:justify-end">
+    <Link
+      href="/impressum"
+      className="transition-colors hover:text-primary"
+    >
+      Impressum
+    </Link>
+    <Link
+      href="/datenschutz"
+      className="transition-colors hover:text-primary"
+    >
+      Datenschutz
+    </Link>
+  </div>
+</div>
       </div>
     </footer>
   )
