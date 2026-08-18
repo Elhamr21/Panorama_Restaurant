@@ -14,13 +14,14 @@ export default function ImpressumPage() {
       <section>
         <h2 className="font-serif text-2xl text-foreground">Angaben gemäß § 5 DDG</h2>
         <p className="mt-3">
-          {business.name}
+          Anbieter dieser Internetseite ist:
+          <br />
+          <br />
+          Saban Bilali
           <br />
           {business.street}
           <br />
           {business.postal} {business.city}
-          <br />
-          {business.country}
         </p>
       </section>
 
@@ -29,7 +30,7 @@ export default function ImpressumPage() {
         <p className="mt-3">
           Telefon:{" "}
           <a href={business.phoneHref} className="text-primary underline underline-offset-4">
-            {business.phone}
+            0174 8189415
           </a>
           <br />
           E-Mail:{" "}
@@ -40,15 +41,29 @@ export default function ImpressumPage() {
       </section>
 
       <section>
+        <h2 className="font-serif text-2xl text-foreground">Handelsregister</h2>
+        <p className="mt-3">
+          Eingetragen in das Handelsregister beim Amtsgericht [Vorgang ist noch nicht abgeschlossen]
+          <br />
+          unter HRA [Vorgang ist noch nicht abgeschlossen]
+        </p>
+      </section>
+
+      <section>
+        <h2 className="font-serif text-2xl text-foreground">Zuständige Aufsichtsbehörde</h2>
+        <p className="mt-3">[Vorgang ist noch nicht abgeschlossen]</p>
+      </section>
+
+      <section>
         <h2 className="font-serif text-2xl text-foreground">Umsatzsteuer-ID</h2>
         <p className="mt-3">
-          Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: [bitte ergänzen]
+          USt.-Id.-Nr. gemäß § 27 UStG: DE [Vorgang ist noch nicht abgeschlossen]
         </p>
       </section>
 
       <section>
         <h2 className="font-serif text-2xl text-foreground">Verantwortlich für den Inhalt</h2>
-        <p className="mt-3">nach § 18 Abs. 2 MStV: [Name der verantwortlichen Person, bitte ergänzen]</p>
+        <p className="mt-3">Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV: Saban Bilali</p>
       </section>
 
       <section>
@@ -67,11 +82,6 @@ export default function ImpressumPage() {
           Verbraucherschlichtungsstelle teilzunehmen.
         </p>
       </section>
-
-      <p className="text-sm">
-        Hinweis: Die mit [bitte ergänzen] markierten Angaben müssen vor Veröffentlichung durch den Betreiber
-        vervollständigt werden.
-      </p>
     </LegalShell>
   )
 }
