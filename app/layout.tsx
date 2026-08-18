@@ -40,6 +40,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "PANORAMA Lounge & Restaurant" }],
   alternates: { canonical: "/" },
+  icons: {
+    icon: [{ url: "/logo.svg", type: "image/svg+xml" }],
+    shortcut: [{ url: "/logo.svg", type: "image/svg+xml" }],
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "de_DE",
