@@ -64,7 +64,6 @@ export function LocationSection() {
             </div>
 
             <div className="flex flex-wrap gap-3 pt-2">
-              <CtaButton href={business.phoneHref}>Tisch reservieren</CtaButton>
               <CtaButton
                 href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(business.mapsQuery)}`}
                 variant="outline"
