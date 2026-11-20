@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Datenschutzerklärung",
   description: "Datenschutzerklärung des PANORAMA Lounge & Restaurant.",
   robots: { index: false },
+  alternates: { canonical: "/datenschutz" },
 }
 
 export default function DatenschutzPage() {

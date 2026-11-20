@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Impressum",
   description: "Impressum und Anbieterkennzeichnung des PANORAMA Lounge & Restaurant.",
   robots: { index: false },
+  alternates: { canonical: "/impressum" },
 }
 
 export default function ImpressumPage() {

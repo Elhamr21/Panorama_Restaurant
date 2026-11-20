@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     "Kroatisches Restaurant Niedersachsen",
   ],
   authors: [{ name: "PANORAMA Lounge & Restaurant" }],
-  alternates: { canonical: "/" },
   icons: {
     icon: [{ url: "/logo.svg", type: "image/svg+xml" }],
     shortcut: [{ url: "/logo.svg", type: "image/svg+xml" }],
@@ -48,7 +47,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "de_DE",
-    url: business.website,
     siteName: "PANORAMA Lounge & Restaurant",
     title: "PANORAMA Lounge & Restaurant | Kroatische Küche in Rehburg-Loccum",
     description,
@@ -71,13 +69,16 @@ export const viewport: Viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Restaurant",
+  "@id": `${business.website}/#restaurant`,
   name: business.name,
+  logo: `${business.website}/logo.svg`,
+  hasMenu: `${business.website}/menu`,
   image: [`${business.website}/ambient/ambient3.png`, `${business.website}/food/food6.png`],
-  servesCuisine: "Croatian",
+  servesCuisine: ["Croatian", "Mediterranean"],
   priceRange: "€€",
   telephone: business.phone,
   email: business.email,
-  url: business.website,
+  url: `${business.website}/`,
   address: {
     "@type": "PostalAddress",
     streetAddress: business.street,
@@ -86,11 +87,6 @@ const jsonLd = {
     addressCountry: "DE",
   },
   geo: { "@type": "GeoCoordinates", latitude: 52.4708, longitude: 9.2264 },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: business.rating,
-    reviewCount: business.reviews,
-  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
